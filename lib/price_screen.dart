@@ -20,11 +20,11 @@ class _PriceScreenState extends State<PriceScreen> {
       );
       dropdownItems.add(newItem);
     }
-
     return DropdownButton<String>(
       value: selectedCurrency,
       items: dropdownItems,
-      onChanged: (value) {
+      onChanged: (value)
+      {
         setState(() {
           selectedCurrency = value!;
           getData();
@@ -40,7 +40,7 @@ class _PriceScreenState extends State<PriceScreen> {
     }
 
     return CupertinoPicker(
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: Colors.pinkAccent,
       itemExtent: 32.0,
       onSelectedItemChanged: (selectedIndex) {
         setState(() {
@@ -54,7 +54,6 @@ class _PriceScreenState extends State<PriceScreen> {
 
   Map<String, String> coinValues = {};
   bool isWaiting = false;
-
   void getData() async {
     isWaiting = true;
     try {
@@ -81,7 +80,7 @@ class _PriceScreenState extends State<PriceScreen> {
         CryptoCard(
           cryptoCurrency: crypto,
           selectedCurrency: selectedCurrency,
-          value: isWaiting ? '?' : coinValues[crypto],
+          value: isWaiting ? '?' : coinValues[crypto]!,
         ),
       );
     }
@@ -106,7 +105,7 @@ class _PriceScreenState extends State<PriceScreen> {
             height: 150.0,
             alignment: Alignment.center,
             padding: EdgeInsets.only(bottom: 30.0),
-            color: Colors.lightBlue,
+            color: Colors.pinkAccent,
             child: Platform.isIOS ? iOSPicker() : androidDropdown(),
           ),
         ],
@@ -131,7 +130,7 @@ class CryptoCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
       child: Card(
-        color: Colors.lightBlueAccent,
+        color: Colors.pinkAccent,
         elevation: 5.0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
